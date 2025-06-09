@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sharon Shaji | Developer Portfolio</title>
+  <style>
+    :root {
+      --primary: #00c6ff;
+      --text-dark: #111;
+      --bg-dark: #121212;
+      --text-light: #f0f0f0;
+      --bg-light: #ffffff;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html[data-theme='dark'] {
+      --bg: var(--bg-dark);
+      --text: var(--text-light);
+      --card-bg: var(--glass-bg);
+      --border: var(--border-color);
+    }
+
+    html[data-theme='light'] {
+      --bg: var(--bg-light);
+      --text: var(--text-dark);
+      --card-bg: #f9f9f9;
+      --border: #ddd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header h2 {
+      font-weight: 300;
+      color: gray;
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .theme-toggle {
+      margin: 1rem 0;
+      cursor: pointer;
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+    }
+
+    .card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin-top: 0.5rem;
+      color: gray;
+    }
+
+    .contact-section {
+      max-width: 800px;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .contact-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+      margin-bottom: 0.5rem;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .resume-btn:hover {
+      background: #009edb;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: gray;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header h2 {
+        font-size: 1rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="title">Sharon Shaji</h1>
+    <h2 id="subtitle">Full Stack Developer | Creative Technologist</h2>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  </header>
+
+  <section class="cards-container" id="projects">
+    <div class="card">
+      <a href="https://github.com/sharon-9048" target="_blank">🌐 GitHub Profile</a>
+      <p>Explore my public repositories and contributions.</p>
+    </div>
+    <div class="card">
+      <a href="https://github.com/sharon-9048/ecommerce" target="_blank">🛍 Ecommerce Project</a>
+      <p>A full-featured e-commerce platform using React + Node.js.</p>
+    </div>
+    <div class="card">
+      <a href="https://github.com/sharon-9048?tab=repositories" target="_blank">📁 All Repositories</a>
+      <p>Browse all my open-source projects and sample work.</p>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h3>📫 Contact Me</h3>
+    <p>Email: <a href="mailto:sharon@example.com">sharon@example.com</a></p>
+    <p>Phone: +91-XXXXXXXXXX</p>
+    <a class="resume-btn" href="sharont.pdf" download>⬇️ Download Resume</a>
+  </section>
+
+  <footer>
+    © 2025 Sharon Shaji
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    }
+
+    (function () {
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    })();
+
+    // GSAP animations
+    gsap.from("#title", { opacity: 0, y: -50, duration: 1 });
+    gsap.from("#subtitle", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+
+    gsap.utils.toArray(".card").forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        delay: i * 0.2
+      });
+    });
+
+    gsap.from(".contact-section", {
+      scrollTrigger: {
+        trigger: ".contact-section",
+        start: "top 80%",
+      },
+      opacity: 0,
+      y: 100,
+      duration: 1
+    });
+  </script>
+
+</body>
+</html>
